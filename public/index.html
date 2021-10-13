@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./proyecto.js"></script>
+    <title>Mi página estática</title>
+</head>
+<body>
+    <style>
+        body {
+          background-color: rgba(224, 248, 252, 0.753);
+          margin: 10px;
+        }
+        h1,h4{
+        color: rgba(56, 60, 71, 0.651);
+        }
+    </style>
+
+<h1>Bienvenidos a mi sitio web</h1>
+ 
+<h4>Seleccione su producto:</h4>
+    <form method="post" action="/api/productos/guardar">
+        <div class="form-group">
+          <label for="formGroupExampleInput" name="titulo">Titulo:</label>
+          <input name="titulo" id="titulo" type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput" name="precio"> Precio:</label>
+            <input  name="precio" id="precio" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+          </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2" name="url">Url:</label>
+          <input name="url" type="text" id="imagen" class="form-control" id="formGroupExampleInput2" placeholder="">
+        </div><br>
+        <input type="button" onclick="enviar()" class="btn btn-secondary" value="Enviar">
+      </form>
+      <br>
+      <div id="tabla"></div>
+      <br>
+      <h1>Centro de Mensajes</h1>
+      <br>
+      <input type="email" name="email" placeholder="hola@coderhouse.com" id="email">
+      <hr>
+      <div id="mensajes"></div>
+        <form onsubmit="return envioMensaje(this)">
+        <input type="text" placeholder="Su mensaje..." id="mensaje">
+        <input type="submit" class="btn btn-primary" value="Enviar">
+      </form>
+</body>
+</html>
+
